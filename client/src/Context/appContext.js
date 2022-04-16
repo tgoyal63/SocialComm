@@ -87,7 +87,7 @@ const AppProvider = ({ children }) => {
       return config;
     },
     (error) => {
-      return Promise.reject(error);
+      return Promise.reject(error.response);
     }
   );
 
@@ -97,12 +97,12 @@ const AppProvider = ({ children }) => {
       return response;
     },
     (error) => {
-      console.log(error);
+      console.log(error.response);
       if (error.response.status === 401) {
         logoutUser();
         console.log("AUTH ERROR");
       }
-      return Promise.reject(error);
+      return Promise.reject(error.response);
     }
   );
 
@@ -135,7 +135,7 @@ const AppProvider = ({ children }) => {
       //local data storage
       addUserToLocalStorage({ token: data.data.token });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       dispatch({
         type: REGISTER_USER_ERROR,
         payload: { msg: error },
@@ -159,7 +159,7 @@ const AppProvider = ({ children }) => {
       //local data storage
       addUserToLocalStorage({ token: data.data.token });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       dispatch({
         type: LOGIN_USER_ERROR,
         payload: { msg: error },
@@ -197,7 +197,7 @@ const AppProvider = ({ children }) => {
       });
       addUserNameToLocalStorage({ loginUsername: username });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
@@ -212,7 +212,7 @@ const AppProvider = ({ children }) => {
         type: EDIT_SOCIALS_SUCCESS,
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       dispatch({
         type: EDIT_SOCIALS_ERROR,
         payload: { msg: error },
@@ -239,7 +239,7 @@ const AppProvider = ({ children }) => {
       });
       addUserToLocalStorage({ token: data.data.token });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       if (error.response.status === 401) {
         console.log("AUTH ERROR");
         dispatch({
@@ -249,8 +249,6 @@ const AppProvider = ({ children }) => {
       }
     }
   };
-
-  const checkUsername = () => {};
 
   const getGithub = async (gusername) => {
     dispatch({
@@ -293,7 +291,7 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       dispatch({
         type: GET_GITHUBDATA_ERROR,
         payload: { msg: error },
@@ -333,7 +331,7 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       dispatch({
         type: GET_HACKERRANKDATA_ERROR,
         payload: { msg: error },
@@ -376,7 +374,7 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       dispatch({
         type: GET_CODECHEFDATA_ERROR,
         payload: { msg: error },
@@ -408,7 +406,7 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       dispatch({
         type: SEARCH_USER_ERROR,
         payload: { msg: error },
@@ -427,7 +425,7 @@ const AppProvider = ({ children }) => {
         type: ADD_FRIEND_SUCCESS,
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       dispatch({
         type: ADD_FRIEND_ERROR,
         payload: { msg: error },
@@ -466,7 +464,7 @@ const AppProvider = ({ children }) => {
         type: GET_CANCEL_REQ_SUCCESS,
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
@@ -484,7 +482,7 @@ const AppProvider = ({ children }) => {
         type: GET_ACCEPT_REQ_SUCCESS,
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
@@ -504,7 +502,7 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
@@ -524,7 +522,7 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
@@ -540,7 +538,7 @@ const AppProvider = ({ children }) => {
         type: GET_UPVOTE_SUCCESS,
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
@@ -556,7 +554,7 @@ const AppProvider = ({ children }) => {
         type: GET_DOWNVOTE_SUCCESS,
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
@@ -572,7 +570,7 @@ const AppProvider = ({ children }) => {
         type: REMOVE_VOTE_SUCCESS,
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
   const getGlobalLeaderboard = async () => {
@@ -589,7 +587,7 @@ const AppProvider = ({ children }) => {
         },
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
 
@@ -603,7 +601,6 @@ const AppProvider = ({ children }) => {
         getUser,
         editSocials,
         changePassword,
-        checkUsername,
         getGithub,
         getHackerrank,
         getCodechef,

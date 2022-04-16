@@ -1,5 +1,5 @@
 import "./App.scss"
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Landing from "./Pages/Landing/Landing"
 import Leaderboard from "./Pages/Leaderboard/Leaderboard"
 import Setting from "./Pages/Settings/Setting"

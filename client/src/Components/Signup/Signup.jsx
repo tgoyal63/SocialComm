@@ -15,7 +15,7 @@ const initialState = {
 export const Signup = (props) => {
   const [values, setValues] = useState(initialState)
   const navigate = useNavigate()
-  const { token, registerUser, isRegister } = useAppContext()
+  const { token, registerUser } = useAppContext()
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }

@@ -55,6 +55,7 @@ const ChangePassword = () => {
           className='userabc-cp'
           src='https://cdn1.iconfinder.com/data/icons/avatars-55/100/avatar_profile_user_music_headphones_shirt_cool-512.png'
           height='100px'
+          alt="Avatar"
           width='100px'
         />
         <h3 className='cp-heading'>Change Your Password</h3>

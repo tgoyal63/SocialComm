@@ -12,7 +12,7 @@ export const AboutCard = (props) => {
             <h1>{props.name}</h1>
           </div>
           <div className='about-portfolio'>
-            <a href={props.portfolio} target='_blank'>
+            <a href={props.portfolio} target='_blank' rel="noreferrer">
               Portfolio
             </a>
           </div>

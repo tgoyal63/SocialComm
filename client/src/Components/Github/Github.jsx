@@ -18,7 +18,6 @@ const Github = (props) => {
     following,
     organizations,
     github_created_at,
-    isGithubError,
   } = useAppContext();
   useEffect(() => {
     const github = async () => {
@@ -31,27 +30,26 @@ const Github = (props) => {
       <Container>
         <div className="header">
           <h3 className="heading">GitHub</h3>
-          {/* <img src={require("../../assets/GitHub-Mark-Light-32px.png")}  alt="github" /> */}
           <h6>
             username: <span className="username">{githubUsername}</span>
           </h6>
         </div>
         <Row>
           <Col lg={12} className="githubStats">
-            <img src={graph} width="100%" />
+            <img src={graph} width="100%" alt="Github Commits Graph" />
           </Col>
         </Row>
         <Row>
           <Col lg={6} className="githubStats">
-            <img src={stats} width="100%" />
+            <img src={stats} width="100%" alt="Github Stats" />
           </Col>
           <Col lg={6} className="githubStats">
-            <img src={contributions} width="100%" />
+            <img src={contributions} width="100%" alt="Github Contributions"/>
           </Col>
         </Row>
         <Row>
           <Col lg={6} className="githubStats">
-            <img src={mul} width="100%" />
+            <img src={mul} width="100%" alt="Most Used Languages"/>
           </Col>
           <Col lg={6} className="githubStats">
             <Card className="g-card">

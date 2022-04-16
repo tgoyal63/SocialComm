@@ -11,7 +11,7 @@ const initialState = {
 export const Login = (props) => {
   const [values, setValues] = useState(initialState)
   const navigate = useNavigate()
-  const { token, loginUser, isLogin } = useAppContext()
+  const { token, loginUser } = useAppContext()
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }

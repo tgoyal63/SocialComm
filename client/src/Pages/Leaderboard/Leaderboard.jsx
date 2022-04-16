@@ -11,9 +11,7 @@ import "./Leaderboard.scss";
 const Leaderboard = () => {
   const {
     getGlobalLeaderboard,
-    globaldata,
-    getFriendsLeaderboard,
-    friendsdata,
+    globaldata
   } = useAppContext();
 
   const [isGlobal, setIsGlobal] = useState(false);
@@ -30,11 +28,6 @@ const Leaderboard = () => {
     e.preventDefault();
     setIsGlobal(true);
     getGlobalLeaderboard();
-  };
-
-  const handleLocal = (e) => {
-    e.preventDefault();
-    setIsGlobal(false);
   };
 
   let count = 1;
