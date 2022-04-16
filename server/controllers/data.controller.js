@@ -22,10 +22,10 @@ module.exports = {
       username = req.user.socials.github;
     }
     const baseData = {
-      graph: `https://activity-graph.herokuapp.com/graph?username=${username}&bg_color=17171F&color=FF6666&line=FFFFFF&point=FF6666&area=true&hide_border=true`,
-      stats: `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&hide_border=true&bg_color=17171F&title_color=FF6666&text_color=FFFFFF&icon_color=FF6666`,
-      mul: `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&bg_color=17171F&title_color=FF6666&text_color=FFFFFF&hide_border=true&card_width=400`,
-      contributions: `https://github-readme-streak-stats.herokuapp.com/?user=${username}&hide_border=true&sideNums=FFFFFF&background=17171F&currStreakNum=FFFFFF&fire=FF6666&sideLabels=FF6666&dates=FFFFFF&ring=FF6666&stroke=FF6666&currStreakLabel=FF6666`,
+      graph: `https://activity-graph.herokuapp.com/graph?username=${username}&bg_color=17171F&color=66c1ff&line=FFFFFF&point=66c1ff&area=true&hide_border=true`,
+      stats: `https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&hide_border=true&bg_color=17171F&title_color=66c1ff&text_color=FFFFFF&icon_color=66c1ff`,
+      mul: `https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&bg_color=17171F&title_color=66c1ff&text_color=FFFFFF&hide_border=true&card_width=400`,
+      contributions: `https://github-readme-streak-stats.herokuapp.com/?user=${username}&hide_border=true&sideNums=FFFFFF&background=17171F&currStreakNum=FFFFFF&fire=66c1ff&sideLabels=66c1ff&dates=FFFFFF&ring=66c1ff&stroke=66c1ff&currStreakLabel=66c1ff`,
       githubUsername: username,
     }
     const data = await getSocialData("github", username);

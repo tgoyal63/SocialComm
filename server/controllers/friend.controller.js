@@ -37,15 +37,18 @@ module.exports = {
   editFriend: ('/acceptfriend/:username', controllerBoilerPlate(async (req) => {
     const { username } = req.params;
     const data = await checkExist("username", username);
+    
     if (username === req.user.username)
       throw new ControllerError(400, "You can't add yourself!");
     if (!data)
       throw new ControllerError(404, "User not found!");
 
     const check = await friendService.search({ requester: req.user._id, recipient: data._id});
-    if (check[0].status === 3) throw new ControllerError(409, "Already friends!");
-    else if(check[0].status === 1) throw new ControllerError(409, "Already sent friend request!");
-    else if(check[0].status === 0) throw new ControllerError(400, "You have not received a friend request!");
+    if(check[0]) {
+      if (check[0].status === 3) throw new ControllerError(409, "Already friends!");
+      else if(check[0].status === 1) throw new ControllerError(409, "Already sent friend request!");
+      else if(check[0].status === 0) throw new ControllerError(400, "You have not received a friend request!");
+    }
 
     const docA = await friendService.update({ requester: req.user._id, recipient: data._id }, { $set: { status: 3 } });
     const docB = await friendService.update({ recipient: req.user._id, requester: data._id }, { $set: { status: 3 } });

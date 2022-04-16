@@ -1,0 +1,47 @@
+.codechef {
+  padding-top: 60px;
+  margin: 0px;
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+h6 {
+  color: #FFF;
+}
+
+.codechef .heading,
+.codechef .username {
+  color: #66c1ff   !important;
+}
+
+.codechefStats {
+  padding-bottom: 30px;
+}
+
+.g-card {
+  height: 100%;
+  background-color: #17171F !important;
+}
+
+.list-group-item {
+  background-color: #17171F !important;
+}
+
+.card-title {
+  color: #66c1ff  ;
+  font-weight: bold;
+
+}
+
+.card-text {
+  color: white;
+  font: 1.25rem 'Segoe UI', Ubuntu, Sans-Serif;
+}
+
+.card-text .row{
+  padding: 0.55rem;
+}

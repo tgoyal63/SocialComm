@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss"
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import Landing from "./Pages/Landing/Landing"
+import Leaderboard from "./Pages/Leaderboard/Leaderboard"
+import Setting from "./Pages/Settings/Setting"
+import ChangePassword from "./Pages/ChangePassword/ChangePassword"
+import { Homepage } from "./Pages/Homepage/Homepage"
+import Dashboard from "./Pages/Dashboard/Dashboard"
+import About from "./Pages/About/About"
+import SearchDashboard from "./Pages/SearchDashboard/SearchDashboard"
+import Friends from "./Pages/Friends/Friends"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/dashboard' element={<Dashboard />}></Route>
+          <Route exact path='/leaderboard' element={<Leaderboard />}></Route>
+          <Route exact path='/' element={<Homepage />}></Route>
+          <Route path='/settings' element={<Setting />}></Route>
+          <Route path='/friends' element={<Friends />}></Route>
+          <Route
+            exact
+            path='/changepassword'
+            element={<ChangePassword />}
+          ></Route>
+          <Route exact path='/register' element={<Landing />}></Route>
+          <Route exact path='/about' element={<About />}></Route>
+          <Route
+            exact
+            path='/search/:username'
+            element={<SearchDashboard />}
+          ></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,87 @@
+.navheader{
+  
+    // height: 4em;
+    border-bottom: 1px solid #272744;
+    background-color: #1A1A2E90;
+    backdrop-filter: blur(4px);
+   
+}
+
+.nav-link{
+    color:white !important
+}
+
+
+.nav-logo{
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFF!important
+}
+
+.nav-logo > span{
+    color: #66c1ff   !important
+}
+
+.nav-link {
+    margin-right: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-block;
+    position: relative;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.25s ease-in-out;
+}
+
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: #66c1ff  ;
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-link:hover{
+    color: #66c1ff   !important;
+    transform: translateY(-4px);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.logout-btn{
+    background-color: #66c1ff   !important;
+    color:#FFF !important;
+    font-weight: bold !important;
+}
+
+.search-bar{
+    display:flex;
+    justify-content: space-between;
+}
+
+.search-input{
+    background-color: #1A1A2E50;
+    height: 2.3rem;
+    width: 10rem;
+    margin:3px
+}
+
+.btn{
+    margin-right: 3px !important;
+}
