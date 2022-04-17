@@ -6,6 +6,7 @@ import { useAppContext } from "../../Context/appContext";
 import Github from "../../Components/Github/Github";
 import Hackerrank from "../../Components/Hackerrank/Hackerrank";
 import CodeChef from "../../Components/CodeChef/CodeChef";
+import { ToastContainer } from 'react-toastify';
 
 const Dashboard = () => {
   const { getUser } = useAppContext();
@@ -23,6 +24,7 @@ const Dashboard = () => {
       <Hackerrank username="" />
       <CodeChef username="" />
       <Footer />
+      <ToastContainer />
     </div>
   );
 };

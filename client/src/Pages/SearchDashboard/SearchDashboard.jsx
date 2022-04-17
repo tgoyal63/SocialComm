@@ -45,31 +45,63 @@ const SearchDashboard = () => {
 
   function handleFriend(username) {
     if (status === "Add Friend") {
-      addFriend(username);
-      toast("Friend request sent!");
+      const data = addFriend(username);
+      if (data.statusCode === 201) {
+        toast("Friend request sent!");
+      } else {
+        toast(data.message);
+      }
     } else if (status === "Accept Request") {
-      acceptReq(username);
-      toast("You are now friends!");
+      const data = acceptReq(username);
+      if (data.statusCode === 204) {
+        toast("You are now friends!");
+      } else {
+        toast(data.message);
+      }
     } else {
-      if (status === "Remove Friend") toast("Friend Removed");
-      else toast("Friend Request Removed!");
-      getCancelReq(username);
+      const data = getCancelReq(username);
+      if (data.statusCode === 201) {
+        if (status === "Remove Friend") toast("Friend Removed");
+        else toast("Friend Request Removed!");
+      } else {
+        toast(data.message);
+      }
     }
   }
 
   const handleUpVote = async () => {
     if (voteStatus === "upvoted") {
-      await removeVote(username);
+      const data = await removeVote(username);
+      if (data.statusCode === 201) {
+        toast("Vote Removed");
+      } else {
+        toast(data.message);
+      }
     } else {
-      await getUpVote(username);
+      const data = await getUpVote(username);
+      if (data.statusCode === 201) {
+        toast("Upvoted");
+      } else {
+        toast(data.message);
+      }
     }
   };
 
   const handleDownVote = async () => {
     if (voteStatus === "downvoted") {
-      await removeVote(username);
+      const data = await removeVote(username);
+      if (data.statusCode === 201) {
+        toast("Vote Removed");
+      } else {
+        toast(data.message);
+      }
     } else {
-      await getDownVote(username);
+      const data = await getDownVote(username);
+      if (data.statusCode === 201) {
+        toast("Downvoted");
+      } else {
+        toast(data.message);
+      }
     }
   };
 
@@ -90,7 +122,7 @@ const SearchDashboard = () => {
             <div className="col-lg-12 col-sm-6 text-center d-flex justify-content-center gap-4">
               <button
                 className="btn btn-up p-3"
-                title="Upvote"
+                title={voteStatus === "upvoted" ? "Remove Upvote" : "Upvote"}
                 onClick={handleUpVote}
               >
                 <div className="d-flex justify-content-center p-0 m-0">
@@ -100,7 +132,7 @@ const SearchDashboard = () => {
               </button>
               <button
                 className="btn btn-down  p-3"
-                title="Downvote"
+                title={voteStatus === "downvoted" ? "Remove Downvote" : "Downvote"}
                 onClick={handleDownVote}
               >
                 <div className="d-flex justify-content-center p-0 m-0">
@@ -129,8 +161,6 @@ const SearchDashboard = () => {
         <Github username={socials && socials.github} />
         <Hackerrank username={socials && socials.hackerrank} />
         <CodeChef username={socials && socials.codechef} />
-
-        {/* {isGithubError ? <ToastContainer /> : <></>} */}
         <Footer />
       </div>
       <ToastContainer />

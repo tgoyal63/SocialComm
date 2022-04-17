@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./CodeChef.scss";
 import { useAppContext } from "../../Context/appContext";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 const CodeChef = (props) => {
   const { username } = props;
@@ -18,7 +19,10 @@ const CodeChef = (props) => {
   } = useAppContext();
   useEffect(() => {
     const codechef = async () => {
-      await getCodechef(username);
+      const data = await getCodechef(username);
+      if(data.statusCode !== 201) {
+        toast(data.message);
+      }
     };
     codechef();
   }, [username]);

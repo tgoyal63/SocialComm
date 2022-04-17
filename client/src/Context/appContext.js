@@ -140,7 +140,7 @@ const AppProvider = ({ children }) => {
         type: REGISTER_USER_ERROR,
         payload: { msg: error.response.data.message },
       });
-      return error.response.data
+      return error.response.data;
     }
   };
 
@@ -291,12 +291,13 @@ const AppProvider = ({ children }) => {
           github_created_at,
         },
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
       dispatch({
         type: GET_GITHUBDATA_ERROR,
         payload: { msg: error },
       });
+      return error.response.data;
     }
   };
 
@@ -331,12 +332,13 @@ const AppProvider = ({ children }) => {
           badgeData,
         },
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
       dispatch({
         type: GET_HACKERRANKDATA_ERROR,
         payload: { msg: error },
       });
+      return error.response.data;
     }
   };
 
@@ -374,12 +376,13 @@ const AppProvider = ({ children }) => {
           submissionStats,
         },
       });
+      return data;
     } catch (error) {
-      console.log(error);
       dispatch({
         type: GET_CODECHEFDATA_ERROR,
         payload: { msg: error },
       });
+      return error.response.data;
     }
   };
 
@@ -425,12 +428,13 @@ const AppProvider = ({ children }) => {
       dispatch({
         type: ADD_FRIEND_SUCCESS,
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
       dispatch({
         type: ADD_FRIEND_ERROR,
         payload: { msg: error },
       });
+      return error.response.data;
     }
   };
 
@@ -448,8 +452,9 @@ const AppProvider = ({ children }) => {
           pending,
         },
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
+      return error.response.data;
     }
   };
 
@@ -457,15 +462,15 @@ const AppProvider = ({ children }) => {
     dispatch({
       type: GET_CANCEL_REQ_BEGIN,
     });
-
     try {
       let { data } = await authFetch.delete(`${BASE_URL}/delete/${username}`);
 
       dispatch({
         type: GET_CANCEL_REQ_SUCCESS,
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
+      return error.response.data;
     }
   };
 
@@ -482,8 +487,9 @@ const AppProvider = ({ children }) => {
       dispatch({
         type: GET_ACCEPT_REQ_SUCCESS,
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
+      return error.response.data;
     }
   };
 
@@ -502,8 +508,9 @@ const AppProvider = ({ children }) => {
           friends,
         },
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
+      return error.response.data;
     }
   };
 
@@ -522,8 +529,9 @@ const AppProvider = ({ children }) => {
           requests,
         },
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
+      return error.response.data;
     }
   };
 
@@ -538,8 +546,9 @@ const AppProvider = ({ children }) => {
       dispatch({
         type: GET_UPVOTE_SUCCESS,
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
+      return error.response.data;
     }
   };
 
@@ -550,12 +559,12 @@ const AppProvider = ({ children }) => {
 
     try {
       let { data } = await authFetch.get(`${BASE_URL}/downvote/${username}`);
-      const { message } = data.data;
       dispatch({
         type: GET_DOWNVOTE_SUCCESS,
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
+      return error.response.data;
     }
   };
 
@@ -570,8 +579,9 @@ const AppProvider = ({ children }) => {
       dispatch({
         type: REMOVE_VOTE_SUCCESS,
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
+      return error.response.data;
     }
   };
   const getGlobalLeaderboard = async () => {
@@ -587,8 +597,9 @@ const AppProvider = ({ children }) => {
           globaldata,
         },
       });
+      return data;
     } catch (error) {
-      console.log(error.response);
+      return error.response.data;
     }
   };
 

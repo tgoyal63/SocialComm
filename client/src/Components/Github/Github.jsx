@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Github.scss";
 import { useAppContext } from "../../Context/appContext";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 const Github = (props) => {
   const { username } = props;
@@ -21,7 +22,10 @@ const Github = (props) => {
   } = useAppContext();
   useEffect(() => {
     const github = async () => {
-      await getGithub(username);
+      const data = await getGithub(username);
+      if(data.statusCode !== 201) {
+        toast(data.message);
+      }
     };
     github();
   }, [username]);

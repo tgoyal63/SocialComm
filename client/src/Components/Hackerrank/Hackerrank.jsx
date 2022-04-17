@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Hackerrank.scss";
 import { useAppContext } from "../../Context/appContext";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 const Hackerrank = (props) => {
   const { username } = props;
@@ -18,7 +19,10 @@ const Hackerrank = (props) => {
 
   useEffect( () => {
     const hackerrank = async () => {
-    await getHackerrank(username);
+    const data = await getHackerrank(username);
+    if(data.statusCode !== 201) {
+      toast(data.message);
+    }
     }
     hackerrank();
   }, [username]);
