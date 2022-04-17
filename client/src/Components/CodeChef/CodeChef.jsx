@@ -36,7 +36,7 @@ const CodeChef = (props) => {
             <Card className="g-card">
               <Card.Body>
                 <Card.Title>CodeChef Data</Card.Title>
-                <Card.Text>
+                <Card.Body>
                   <Row>
                     <Col lg={6}>Ratings: {ratings}</Col>
                     <Col lg={6}>Global Rank: {global}</Col>
@@ -49,7 +49,7 @@ const CodeChef = (props) => {
                     <Col lg={6}>Band: {band}</Col>
                     <Col lg={6}>Div: {div}</Col>
                   </Row>
-                </Card.Text>
+                </Card.Body>
               </Card.Body>
             </Card>
           </Col>
@@ -57,7 +57,7 @@ const CodeChef = (props) => {
             <Card className="g-card">
               <Card.Body>
                 <Card.Title>CodeChef Submission Stats</Card.Title>
-                <Card.Text>
+                <Card.Body>
                   <Row>
                     <Col lg={6}>
                       Partially Solved:{" "}
@@ -99,7 +99,7 @@ const CodeChef = (props) => {
                       {submissionStats && submissionStats.runTimeError}
                     </Col>
                   </Row>
-                </Card.Text>
+                </Card.Body>
               </Card.Body>
             </Card>
           </Col>

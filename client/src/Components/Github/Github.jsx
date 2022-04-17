@@ -55,7 +55,7 @@ const Github = (props) => {
             <Card className="g-card">
               <Card.Body>
                 <Card.Title>GitHub Data</Card.Title>
-                <Card.Text>
+                <Card.Body>
                   <Row>
                     <Col lg={6}>Public Repos: {public_repos}</Col>
                     <Col lg={6}>Followers: {followers}</Col>
@@ -68,7 +68,7 @@ const Github = (props) => {
                     <Col lg={6}>Created: {github_created_at}</Col>
                     <Col lg={6}>Organizations: {organizations}</Col>
                   </Row>
-                </Card.Text>
+                </Card.Body>
               </Card.Body>
             </Card>
           </Col>

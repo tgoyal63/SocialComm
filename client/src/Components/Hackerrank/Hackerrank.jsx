@@ -33,11 +33,11 @@ const Hackerrank = (props) => {
           </h6>
         </div>
         <Row>
-          <Col lg={6} className="githubStats">
+          <Col lg={6} className="hackerrankStats">
             <Card className="g-card">
               <Card.Body>
                 <Card.Title>Hackerrank Data</Card.Title>
-                <Card.Text>
+                <Card.Body>
                   <Row>
                     <Col lg={6}>Level: {level}</Col>
                     <Col lg={6}>Followers: {followers_count}</Col>
@@ -49,15 +49,15 @@ const Hackerrank = (props) => {
                   <Row>
                     <Col lg={6}>Created: {hackerrank_created_at}</Col>
                   </Row>
-                </Card.Text>
+                </Card.Body>
               </Card.Body>
             </Card>
           </Col>
-          <Col lg={6} className="githubStats">
+          <Col lg={6} className="hackerrankStats">
             <Card className="g-card">
               <Card.Body>
                 <Card.Title>Hackerrank Badges</Card.Title>
-                <Card.Text>
+                <Card.Body>
                   <Row>
                     {badgeData &&
                       badgeData.map((badge,i) => {
@@ -68,7 +68,7 @@ const Hackerrank = (props) => {
                         );
                       })}
                   </Row>
-                </Card.Text>
+                </Card.Body>
               </Card.Body>
             </Card>
           </Col>

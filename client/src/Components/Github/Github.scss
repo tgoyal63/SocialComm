@@ -1,13 +1,6 @@
-.github,
-.codechef {
+.github {
   padding-top: 60px;
   margin: 0px;
-}
-
-.hackerrank {
-  padding-top: 60px;
-  margin: 0px;
-  background-color: #66c1ff  
 }
 
 .header {
@@ -21,15 +14,8 @@ h6 {
 }
 
 .github .heading,
-.github .username,
-.codeChef .heading,
-.codeChef .username {
+.github .username {
   color: #66c1ff  ;
-}
-
-.hackerrank .heading,
-.hackerrank .username {
-  color: #121217 !important;
 }
 
 .githubStats {
@@ -128,11 +114,11 @@ h6 {
 
 }
 
-.card-text {
+.card-body {
   color: white;
   font: 1.25rem 'Segoe UI', Ubuntu, Sans-Serif;
 }
 
-.card-text .row{
+.card-body .row{
   padding: 0.55rem;
 }

@@ -17,7 +17,6 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <>
     <div className="dashboardHome">
       <NavbarComponent />
       <Github username="" />
@@ -25,7 +24,6 @@ const Dashboard = () => {
       <CodeChef username="" />
       <Footer />
     </div>
-    </>
   );
 };
 
