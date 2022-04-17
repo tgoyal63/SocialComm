@@ -49,7 +49,6 @@ module.exports = {
     }, {
       $match: query
     }]).exec();
-    console.log(data[0]);
     return data[0];
   }),
 
