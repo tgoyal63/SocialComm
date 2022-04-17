@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import "./Signup.scss"
 import { useNavigate } from "react-router-dom"
 import { useAppContext } from "../../Context/appContext"
+import { toast } from "react-toastify"
+
 const initialState = {
   username: "",
   name: "",
@@ -20,16 +22,18 @@ export const Signup = (props) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
     const { username, name, email, password, github, hackerrank, codechef } =
       values
     const socials = { github, hackerrank, codechef }
     const currentUser = { username, name, email, password, socials }
-    const user = async () => {
-      await registerUser(currentUser)
+    const data = await registerUser(currentUser);
+    if (data.statusCode === 201) {
+      toast("Signup Success");
+    } else {
+      toast(data.message);
     }
-    user();
     props.passRegisterChildData(true)
   }
 
@@ -38,7 +42,7 @@ export const Signup = (props) => {
       if (token) {
         navigate("/dashboard")
       }
-    }, 1000)
+    }, 900)
   }, [token, navigate])
   return (
     <div className='loginBox text-center'>

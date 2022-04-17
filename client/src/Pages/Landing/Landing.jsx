@@ -13,14 +13,17 @@ const Landing = () => {
   const [isLoginUser, setIsLoginUser] = useState(false)
   const [isRegisterUser, setIsRegisterUser] = useState(false)
 
-  useEffect(() => {
-    if (isLoginUser) {
-      toast("User Login Successfully")
-    }
-    if (isRegisterUser) {
-      toast("User Register Successfully")
-    }
-  }, [isLoginUser, isRegisterUser])
+  // useEffect(() => {
+  //   if (isLoginUser) {
+  //     toast("User Login Successfully")
+  //   } else {
+  //     toast("User Login Failed!")
+  //   }
+  //   if (isRegisterUser) {
+  //     toast("User Register Successfully")
+  //   }
+  // }, [isLoginUser, isRegisterUser])
+
   return (
     <>
       <div className='landing-home'>

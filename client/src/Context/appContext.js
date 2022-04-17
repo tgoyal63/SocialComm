@@ -62,7 +62,7 @@ const initialState = {
   isGithubError: false,
   isAdd: false,
   isRemoved: false,
-  isLogout: true,
+  isLogout: false,
   isLogin: false,
   isRegister: false,
   isUpVote: false,
@@ -134,12 +134,13 @@ const AppProvider = ({ children }) => {
       });
       //local data storage
       addUserToLocalStorage({ token: data.data.token });
+      return data;
     } catch (error) {
-      console.log(error.response);
       dispatch({
         type: REGISTER_USER_ERROR,
-        payload: { msg: error },
+        payload: { msg: error.response.data.message },
       });
+      return error.response.data
     }
   };
 
@@ -149,7 +150,6 @@ const AppProvider = ({ children }) => {
     });
     try {
       let { data } = await axios.post(`${BASE_URL}/login`, currentUser);
-
       dispatch({
         type: LOGIN_USER_SUCCESS,
         payload: {
@@ -158,12 +158,13 @@ const AppProvider = ({ children }) => {
       });
       //local data storage
       addUserToLocalStorage({ token: data.data.token });
+      return data;
     } catch (error) {
-      console.log(error.response);
       dispatch({
         type: LOGIN_USER_ERROR,
-        payload: { msg: error },
+        payload: { msg: error.response.data.message },
       });
+      return error.response.data;
     }
   };
 
